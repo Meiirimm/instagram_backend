@@ -19,6 +19,7 @@ app.use(require('./app/auth/routes'))
 app.use(require('./app/post/routes'))
 app.use(require('./app/user/routes'))
 app.use(require('./app/comment/routes'))
+app.use(require('./app/like/routes'))
 
 
 app.listen(3000, () => {

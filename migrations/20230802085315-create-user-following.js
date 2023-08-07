@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('UserFollowing', {
+    await queryInterface.createTable('UserFollowings', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -28,7 +28,7 @@ module.exports = {
       },
     });
 
-    await queryInterface.addConstraint('UserFollowing', {
+    await queryInterface.addConstraint('UserFollowings', {
       fields: ['followerId'],
       type: 'foreign key',
       name: 'fk_follower',
@@ -40,7 +40,7 @@ module.exports = {
       onUpdate: 'CASCADE',
     });
 
-    await queryInterface.addConstraint('UserFollowing', {
+    await queryInterface.addConstraint('UserFollowings', {
       fields: ['followingId'],
       type: 'foreign key',
       name: 'fk_following',
@@ -54,6 +54,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('UserFollowing');
+    await queryInterface.dropTable('UserFollowings');
   },
 };
