@@ -42,16 +42,20 @@ const User = sequelize.define('User', {
 }
 );
 
+// Определение связи "многие ко многим" между моделями User с использованием промежуточной модели UserFollowing
+
+// Связь "подписчики" - Пользователь имеет множество "подписчиков"
 User.belongsToMany(User, {
-  through: UserFollowing,
-  as: 'followers',
-  foreignKey: 'followingId',
+  through: UserFollowing, // Используется промежуточная модель UserFollowing
+  as: 'followers', // Атрибут для доступа к коллекции подписчиков
+  foreignKey: 'followingId', // Внешний ключ, связывающий текущего пользователя (подписываемого)
 });
 
+// Связь "подписки" - Пользователь имеет множество "подписок"
 User.belongsToMany(User, {
-  through: UserFollowing,
-  as: 'followings',
-  foreignKey: 'followerId',
+  through: UserFollowing, // Используется промежуточная модель UserFollowing
+  as: 'followings', // Атрибут для доступа к коллекции подписок
+  foreignKey: 'followerId', // Внешний ключ, связывающий пользователя, который осуществляет подписку
 });
 
 

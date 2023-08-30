@@ -11,7 +11,10 @@ const CommentLike = sequelize.define('CommentLike', {
   },
 });
 
+// Устанавливаем связь между CommentLike и User моделями
 CommentLike.belongsTo(User, { foreignKey: 'userId', as: 'user' });
+
+// Устанавливаем связь между CommentLike и Comment моделями
 CommentLike.belongsTo(Comment, { foreignKey: 'commentId', as: 'comment' });
 
 module.exports = CommentLike;

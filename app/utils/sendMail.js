@@ -10,12 +10,12 @@ const transporter = nodemailer.createTransport({
 });
 
 // Определение маршрута для отправки email
-function sendEmail(to, subject, html) {
+function sendEmail(to, subject, text) {
     const mailOptions = {
         from: 'mukhtarmeirim30@gmail.com',
         to: to,
         subject: subject,
-        html: html
+        text: text
     };
 
     transporter.sendMail(mailOptions, function(error, info) {

@@ -16,8 +16,13 @@ const Comment = sequelize.define('Comment', {
 });
 
 // Устанавливаем связь с моделями User и Post
+// Устанавливаем связь, что комментарий принадлежит пользователю
 Comment.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
+
+// Устанавливаем связь, что комментарий принадлежит посту
 Comment.belongsTo(Post, { foreignKey: 'post_id', as: 'post' });
+
+// Устанавливаем связь, что у поста может быть много комментариев
 Post.hasMany(Comment, { foreignKey: 'post_id', as: 'comments' });
 
 module.exports = Comment;

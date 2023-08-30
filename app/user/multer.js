@@ -10,13 +10,9 @@ const storage = multer.diskStorage({
       const filename = Date.now() + "." + ext
       cb(null, filename)
     }
-  })
-  
-  
-
+})
 
 const upload = multer({storage})
-
 
 module.exports = {
     upload
