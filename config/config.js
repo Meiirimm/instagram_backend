@@ -26,7 +26,7 @@ module.exports = {
 };
   
 // username = doadmin
-// password = AVNS_TW_J1OavxjlGt-uh8jK 
+// password = AVNS_TW_J1OavxjlGt-uh8jK hide
 // host = db-postgresql-sgp1-81046-do-user-14535698-0.b.db.ondigitalocean.com
 // port = 25060
 // database = defaultdb
