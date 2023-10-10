@@ -5,7 +5,9 @@ const fs = require('fs');
 
 const updateUser = async(req, res) => {
   try {
-    const user = await User.findByPk(req.params.id)
+    const userId = req.user.id; 
+    const user = await User.findByPk(userId);
+
 
     // Если у пользователя уже есть профильная фотография, удаляем ее
     if (user.profilePic) {
@@ -27,9 +29,9 @@ const updateUser = async(req, res) => {
         profilePic: req.file ? '/profile_images/' + req.file.filename : user.profilePic,
         },
     {
-        where: {
-            id: req.params.id
-        }
+      where: {
+        id: userId, // Используем ID пользователя из JWT-токена
+      },
     })
 
     res.status(200).send({ message: "User data successfully updated"});

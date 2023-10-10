@@ -5,7 +5,7 @@ const {isUserAuthorized} = require('./middlewares')
 const passport = require('passport');
 const {upload} = require('./multer')
 
-router.put('/api/user/:id' , passport.authenticate('jwt', {session: false}), isUserAuthorized, upload.single('profilePic'), updateUser)
+router.put('/api/user', passport.authenticate('jwt', { session: false }), upload.single('profilePic'), updateUser);
 router.get('/api/user/byUsername/:username', passport.authenticate('jwt', {session: false}), getUserByUsername);
 router.post('/api/user/follow/:userId', passport.authenticate('jwt', { session: false }), followUser);
 router.post('/api/user/unfollow/:userId', passport.authenticate('jwt', { session: false }), unfollowUser);
