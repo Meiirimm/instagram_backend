@@ -33,6 +33,11 @@ const getMyPosts = async(req, res) => {
     }
 }
 
+const getAllPosts = async (req, res) => {
+    const allPosts = await Post.findAll();
+    res.status(200).send(allPosts);
+};
+
 const getPostById = async(req, res) => {
     try {
         const post = await Post.findByPk(req.params.id)
@@ -113,6 +118,7 @@ const getPostsByUsername = async(req, res) => {
 module.exports = {
     createPost,
     getMyPosts,
+    getAllPosts,
     getPostById,
     deletePost,
     editPost,
